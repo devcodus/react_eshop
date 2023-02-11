@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, useState, useEffect } from 'react';
+import Shop from './views/Shop';
+import Nav from './components/Nav';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import SignUp from './views/SignUp';
+import Login from './views/Login';
+import SingleItem from './views/SingleItem';
+import Cart from './views/Cart'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default function App() {
+    // const [myList, setMyList] = useState([]);
+    const [user, setUser] = useState({});
+
+    const logMeIn = (user) => {
+        setUser(user)
+    };
+    const logMeOut = () => {
+        setUser({})
+    };
+
+
+    // const addToDo = (e) => {
+    //     e.preventDefault();
+    //     const text = e.target.myText.value
+    //     setMyList(myList.concat([text]))
+    // };
+    // const deleteToDo = (indexToDelete) => {
+    //     const copy = [...myList]
+    //     copy.splice(indexToDelete, 1)
+    //     // this.setState({ myList: copy }) // class version
+    //     setMyList(copy) // function version
+    // };
+
+
+
+    return (
+        <Router>
+            <div>
+                <Nav user={user} logMeOut={logMeOut}/>
+
+                <Routes>
+                    <Route path='/' element={<Shop />} />
+                    <Route path='/singleItem' element={<SingleItem />} />
+                    <Route path='/cart' element={<Cart />} />
+                    <Route path='/signup' element={<SignUp />} />
+                    <Route path='/login' element={<Login logMeIn={logMeIn}/>} />
+                    {/* <Route path='/todo' element={<ToDo myList={myList} handleToDoSubmit={addToDo} deleteToDo={deleteToDo} />} /> */}
+                </Routes>
+
+            </div>
+        </Router>
+    )
+
 }
-
-export default App;
