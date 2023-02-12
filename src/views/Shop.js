@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import Post from '../components/Post';
+import Item from '../components/Item';
 
 export default class Feed extends Component {
   constructor() {
@@ -11,33 +11,34 @@ export default class Feed extends Component {
   };
 
 
+// ########### CONVERT POST TO ITEM'S ###########
 
-  showPosts = () => {
-    return this.state.posts.map(p =><Link key={p.id} to={`/posts/${p.id}`} ><Post  postInfo={p}/></Link>)
-  };
+  // showPosts = () => {
+  //   return this.state.posts.map(p =><Link key={p.id} to={`/posts/${p.id}`} ><Post  postInfo={p}/></Link>)
+  // };
 
-  getPosts = async () => {
-    const res = await fetch(`http://localhost:5000/api/posts`);
-    const data = await res.json();
-    console.log(data)
-    if (data.status==='ok'){
-      this.setState({posts:data.posts})
-    }
-
-
+  // getPosts = async () => {
+  //   const res = await fetch(`http://localhost:5000/api/posts`);
+  //   const data = await res.json();
+  //   console.log(data)
+  //   if (data.status==='ok'){
+  //     this.setState({posts:data.posts})
+  //   }
 
 
-  }
-  componentDidMount = () => {
-    this.getPosts();
-  }
+
+
+  // }
+  // componentDidMount = () => {
+  //   this.getPosts();
+  // }
 
 
 
   render() {
     return (
       <div>
-        {this.showPosts()}
+        {/* {this.showPosts()} */}
       </div>
     )
   }
