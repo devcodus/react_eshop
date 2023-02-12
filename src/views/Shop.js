@@ -1,44 +1,44 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import Item from '../components/Item';
+import Print from '../components/Print';
 
-export default class Feed extends Component {
+export default class Shop extends Component {
   constructor() {
     super();
     this.state = {
-      posts: []
+      prints: []
     }
   };
 
 
 // ########### CONVERT POST TO ITEM'S ###########
 
-  // showPosts = () => {
-  //   return this.state.posts.map(p =><Link key={p.id} to={`/posts/${p.id}`} ><Post  postInfo={p}/></Link>)
-  // };
+  showPrints = () => {
+    return this.state.prints.map(p =><Link key={p.id} to={`/prints/${p.id}`} ><Print printInfo={p}/></Link>)
+  };
 
-  // getPosts = async () => {
-  //   const res = await fetch(`http://localhost:5000/api/posts`);
-  //   const data = await res.json();
-  //   console.log(data)
-  //   if (data.status==='ok'){
-  //     this.setState({posts:data.posts})
-  //   }
-
-
+  getPrints = async () => {
+    const res = await fetch(`http://127.0.0.1:5000/api/populate`);
+    const data = await res.json();
+    console.log(data)
+    if (data.status==='ok'){
+      this.setState({prints:data.prints})
+    }
 
 
-  // }
-  // componentDidMount = () => {
-  //   this.getPosts();
-  // }
+
+
+  }
+  componentDidMount = () => {
+    this.getPrints();
+  }
 
 
 
   render() {
     return (
       <div>
-        {/* {this.showPosts()} */}
+        {this.showPrints()}
       </div>
     )
   }

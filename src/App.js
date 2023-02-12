@@ -40,7 +40,7 @@ export default function App() {
                 <Nav user={user} logMeOut={logMeOut}/>
 
                 <Routes>
-                    <Route path='/' element={<Shop />} />
+                    <Route path='/shop' element={<Shop />} />
                     {/* <Route path='/singleItem' element={<SingleItem />} /> */}
                     <Route path='/cart' element={<Cart />} />
                     <Route path='/signup' element={<SignUp />} />
