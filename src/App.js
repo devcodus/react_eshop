@@ -4,7 +4,7 @@ import Nav from './components/Nav';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import SignUp from './views/SignUp';
 import Login from './views/Login';
-// import SingleItem from './views/SingleItem';
+import SinglePoster from './views/SinglePoster';
 import Cart from './views/Cart'
 
 
@@ -40,9 +40,9 @@ export default function App() {
                 <Nav user={user} logMeOut={logMeOut}/>
 
                 <Routes>
-                    <Route path='/' element={<Shop />} />
-                    {/* <Route path='/singleItem' element={<SingleItem />} /> */}
-                    <Route path='/cart' element={<Cart />} />
+                    <Route path='/shop' element={<Shop />} />
+                    <Route path='/singlePoster' element={<SinglePoster />} />
+                    {/* <Route path='/cart' element={<Cart />} /> */}
                     <Route path='/signup' element={<SignUp />} />
                     <Route path='/login' element={<Login logMeIn={logMeIn}/>} />
                     {/* <Route path='/todo' element={<ToDo myList={myList} handleToDoSubmit={addToDo} deleteToDo={deleteToDo} />} /> */}
