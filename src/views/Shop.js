@@ -1,28 +1,29 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import Print from '../components/Print';
+import Poster from '../components/Poster';
 
 export default class Shop extends Component {
   constructor() {
     super();
     this.state = {
-      prints: []
+      posters: []
     }
   };
 
+  
 
 // ########### CONVERT POST TO ITEM'S ###########
 
-  showPrints = () => {
-    return this.state.prints.map(p =><Link key={p.id} to={`/prints/${p.id}`} ><Print printInfo={p}/></Link>)
+  showPosters = () => {
+    return this.state.posters.map(p =><Link key={p.id} to={`/singlePoster/${p.id}`} ><Poster posterInfo={p}/></Link>)
   };
 
-  getPrints = async () => {
-    const res = await fetch(`http://127.0.0.1:5000/api/populate`);
+  getPosters = async () => {
+    const res = await fetch(`http://127.0.0.1:5000/api/posters`);
     const data = await res.json();
     console.log(data)
     if (data.status==='ok'){
-      this.setState({prints:data.prints})
+      this.setState({posters:data.posters})
     }
 
 
@@ -30,15 +31,19 @@ export default class Shop extends Component {
 
   }
   componentDidMount = () => {
-    this.getPrints();
+    this.getPosters();
   }
 
 
 
   render() {
     return (
-      <div>
-        {this.showPrints()}
+      <div className='container row'>
+        
+        <div className='row'>
+          {this.showPosters()}
+        </div>
+
       </div>
     )
   }
