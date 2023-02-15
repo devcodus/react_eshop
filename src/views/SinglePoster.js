@@ -11,8 +11,15 @@ export default function SinglePoster({ }) {
 
 
     const getPosterInfo = async () => {
-        const url = `http://localhost:5000/api/posters/${posterId}`
-
+        const url = `http://127.0.0.1:5000/api/posters/${posterId}`
+        
+        // const options = {
+        //     method: "GET",
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         // Authorization : `Bearer ${user.apitoken}`
+        //     }
+        // }
         const res = await fetch(url);
         const data = await res.json();
         
@@ -27,7 +34,7 @@ export default function SinglePoster({ }) {
     }, [])
 
     const deletePoster = async () => {
-        const url = `http://localhost:5000/api/posts/${posterId}/delete`;
+        const url = `http://127.0.0.1:5000/api/posts/${posterId}/delete`;
         const options = {
             method: "GET",
             headers: {

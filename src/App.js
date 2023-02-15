@@ -42,6 +42,7 @@ export default function App() {
                 <Routes>
                     <Route path='/shop' element={<Shop />} />
                     <Route path='/singlePoster' element={<SinglePoster />} />
+                    <Route path='/singlePoster/:posterId' element={<SinglePoster />} />
                     {/* <Route path='/cart' element={<Cart />} /> */}
                     <Route path='/signup' element={<SignUp />} />
                     <Route path='/login' element={<Login logMeIn={logMeIn}/>} />
