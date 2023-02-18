@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import Poster from '../components/Poster';
 
 
-export default function SinglePoster({ }) {
+export default function SinglePoster({addToCart}) {
     const { posterId } = useParams();
     const [poster, setPoster] = useState({});
 
@@ -56,7 +56,7 @@ export default function SinglePoster({ }) {
         <div>
             Single Poster Page
             { posterId }
-            <Poster posterInfo = {poster}/>
+            <Poster posterInfo = {poster} addToCart={addToCart}/>
 
             {/* {
             user.username===poster.author

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlinePlus } from 'react-icons/ai';
-// import { BsCloudPlus } from 'react-icons/bs'
+import { BsFillCartFill } from 'react-icons/bs'
 
 export default class Nav extends Component {
     
@@ -36,7 +35,10 @@ export default class Nav extends Component {
                             
                             </>
                             }
-                            
+                            <Link className="nav-link" to="/cart">
+                                <BsFillCartFill />
+                                {this.props.cart.length}|{this.props.cartTotal()}
+                                </Link>
                         </div>
                     </div>
                 </div>
