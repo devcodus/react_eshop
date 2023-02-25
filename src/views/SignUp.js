@@ -47,10 +47,10 @@ export default function SignUp() {
         <div>
             <h1>Sign Up</h1>
             <form onSubmit={handleSubmit}>
-                <input name='username' />
-                <input name='email' />
-                <input name='password' type='password'/>
-                <input name='confirmPassword' type='password'/>
+                <input name='username' placeholder='Username' />
+                <input name='email' placeholder='Email'/>
+                <input name='password' type='password' placeholder='Password'/>
+                <input name='confirmPassword' type='password' placeholder='Confirm Password'/>
                 <button type='submit'>Sign Up</button>
 
 
