@@ -17,7 +17,7 @@ export default function SignUp() {
             password: password
         }
 
-        const url = 'http://localhost:5000/api/signup'
+        const url = 'http://127.0.0.1:5000/api/signup'
         const options = {
             method: "POST",
             body: JSON.stringify(reqBody),
