@@ -23,30 +23,38 @@ import React from 'react'
     
 
 // CHANGED FROM CLASS TO FUNCTION
-export default function Poster({posterInfo, addToCart}) {
-    // const addToCartAPI = async () => {
-    //         const url = `http://127.0.0.1:5000/api/cart/add`
-    //         const options = {
-    //             method: 'POST',
-    //             body: JSON.stringify({'posterId': posterInfo.id}),
-    //             headers:{
-    //                 'Content-Type':'application/json'
-    //                 }
-    //             }
+export default function Poster({posterInfo, addToCart, user}) {
+    const addToCartAPI = async () => {
+        if (user.apitoken){
+
+
+            const url = `http://127.0.0.1:5000/api/cart/add`
+            const options = {
+                method: 'POST',
+                body: JSON.stringify({'posterId': posterInfo.id}),
+                headers:{
+                    'Content-Type':'application/json',
+                    Authorization: `Bearer ${user.apitoken}`
+                    }
+                }
             
 
-    //         const res = await fetch(url, options);
-    //         const data = await res.json();
-    // }
+            const res = await fetch(url, options);
+            const data = await res.json();
+            if (data.status === 'ok'){
+                            console.log(data)
+                        }
+    }
+}
     return (
         <div className="card" style={{ width: "18rem" }}>
             <img src={posterInfo.img_url} className="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">{posterInfo.title}</h5>
                 <p className="card-text">${posterInfo.price}</p>
-                <button className='btn btn-primary' onClick={()=>{addToCart(posterInfo)} }>Add To Cart</button>
+                <button className='btn btn-primary' onClick={()=>{addToCart(posterInfo); addToCartAPI()} }>Add To Cart</button>
             </div>
-{/* ; addToCartAPI()             */}
+              
         </div>
     )
 }

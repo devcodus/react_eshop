@@ -52,44 +52,30 @@ export default function App() {
         return total.toFixed(2)
     };
 
-    // const getCartAPI = async (user) =>{
-    //     if (user.apitoken){
-    //         const url = 'http://127.0.0.1:5000/api/cart/get';
-    //         const options = {
-    //             method: "GET",
-    //             headers: {
-    //                 Authorization: `Bearer ${user.apitoken}`
-    //             }
-    //         }
+    const getCartAPI = async (user) =>{
+        if (user.apitoken){
+            const url = 'http://127.0.0.1:5000/api/cart/get';
+            const options = {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${user.apitoken}`
+                }
+            }
 
-    //         const res = await fetch(url, options);
-    //         const data = await res.json();
-    //         if (data.status === 'ok') {
-    //             setCart(data.cart)
-    //         }
+            const res = await fetch(url, options);
+            const data = await res.json();
+            if (data.status === 'ok') {
+                setCart(data.cart)
+            }
 
-    //     } else {
-    //         setCart([])
-    //     }
-    // };
+        } else {
+            setCart([])
+        }
+    };
 
-    // useEffect(()=>{
-    //     getCartAPI(user)
-    // }, [user])
-
-
-
-    // const addToDo = (e) => {
-    //     e.preventDefault();
-    //     const text = e.target.myText.value
-    //     setMyList(myList.concat([text]))
-    // };
-    // const deleteToDo = (indexToDelete) => {
-    //     const copy = [...myList]
-    //     copy.splice(indexToDelete, 1)
-    //     // this.setState({ myList: copy }) // class version
-    //     setMyList(copy) // function version
-    // };
+    useEffect(()=>{
+        getCartAPI(user)
+    }, [user])
 
 
 

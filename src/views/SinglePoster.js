@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import Poster from '../components/Poster';
 
 
-export default function SinglePoster({addToCart}) {
+export default function SinglePoster({user, addToCart}) {
     const { posterId } = useParams();
     const [poster, setPoster] = useState({});
 
@@ -13,13 +13,13 @@ export default function SinglePoster({addToCart}) {
     const getPosterInfo = async () => {
         const url = `http://127.0.0.1:5000/api/posters/${posterId}`
         
-        // const options = {
-        //     method: "GET",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         // Authorization : `Bearer ${user.apitoken}`
-        //     }
-        // }
+        const options = {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization : `Bearer ${user.apitoken}`
+            }
+        }
         const res = await fetch(url);
         const data = await res.json();
         
@@ -39,7 +39,7 @@ export default function SinglePoster({addToCart}) {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
-                // Authorization : `Bearer ${user.apitoken}`
+                Authorization : `Bearer ${user.apitoken}`
             }
         }
 

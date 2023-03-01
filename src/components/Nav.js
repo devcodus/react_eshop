@@ -19,7 +19,7 @@ export default class Nav extends Component {
                             <Link className="nav-link" to="/cart">Cart</Link>
 
                             {
-                            this.props.user
+                            this.props.user.apitoken
                             ?
                             <>
                              <Link className="nav-link" to="/login" onClick={this.props.logMeOut}>Log Out</Link>

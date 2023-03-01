@@ -1,6 +1,7 @@
 import React from 'react'
-// , removeFromCart, user 
-export default function Cart({ cart}) {
+// import removeFromCart, user 
+
+export default function Cart({user, cart, removeFromCart}) {
 
     const getUniqueCart = (cart) => {
         const uniqueCart = [];
