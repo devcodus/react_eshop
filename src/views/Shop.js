@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Poster from '../components/Poster';
 
-export default function Shop({addToCart}) {
+export default function Shop({addToCart, user} ) {
   const [posters, setPosters] = useState([]);
 
   const showPosters = () => {
     return posters.map((p) => (
       <div key={p.id}>
-        <Poster posterInfo={p} addToCart={() => addToCart(p)} />
+        <Poster posterInfo={p} addToCart={() => addToCart(p)} user = {user} />
         <Link to={`/singlePoster/${p.id}`} className='btn btn-success' style={{marginBottom: '10px'}}>View details</Link>
       </div>
     ));

@@ -85,7 +85,7 @@ export default function App() {
                 <Nav user={user} logMeOut={logMeOut} cart={cart} cartTotal={cartTotal}/>
 
                 <Routes>
-                    <Route path='/shop' element={<Shop addToCart={addToCart}/>} />
+                    <Route path='/shop'  element={<Shop user={user} addToCart={addToCart}/>} />
                     <Route path='/singlePoster' element={<SinglePoster />} />
                     <Route path='/singlePoster/:posterId' element={<SinglePoster addToCart={addToCart} />} />
                     <Route path='/cart' element={<Cart removeFromCart={removeFromCart} />} />
