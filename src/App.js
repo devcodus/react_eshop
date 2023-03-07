@@ -31,10 +31,11 @@ export default function App() {
 
     const removeFromCart = (poster) => {
         const copy = [...cart]
-        for (let i = cart.length-1; i>0; i--){
+        for (let i = cart.length-1; i>=0; i--){
             if (poster.id === cart[i].id){
                 copy.splice(i,1)
                 break
+            
             }
         }
         setCart(copy)
@@ -42,6 +43,7 @@ export default function App() {
 
     const emptyCart = () => {
         setCart([])
+        
     };
     
     const cartTotal =  () => {
@@ -88,7 +90,7 @@ export default function App() {
                     <Route path='/shop'  element={<Shop user={user} addToCart={addToCart}/>} />
                     <Route path='/singlePoster' element={<SinglePoster />} />
                     <Route path='/singlePoster/:posterId' element={<SinglePoster addToCart={addToCart} />} />
-                    <Route path='/cart' element={<Cart removeFromCart={removeFromCart} user={user} cart={cart} />} />
+                    <Route path='/cart' element={<Cart removeFromCart={removeFromCart} emptyCart={emptyCart} user={user} cart={cart} />} />
                     <Route path='/signup' element={<SignUp />} />
                     <Route path='/login' element={<Login logMeIn={logMeIn}/>} />
                     {/* <Route path='/todo' element={<ToDo myList={myList} handleToDoSubmit={addToDo} deleteToDo={deleteToDo} />} /> */}

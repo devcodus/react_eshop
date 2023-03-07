@@ -1,7 +1,7 @@
 import React from 'react'
 // import removeFromCart, user from 
 
-export default function Cart({user, cart, removeFromCart}) {
+export default function Cart({user, cart, removeFromCart, emptyCart}) {
 
     const getUniqueCart = (cart) => {
         const uniqueCart = [];
@@ -30,7 +30,7 @@ export default function Cart({user, cart, removeFromCart}) {
         const url = 'http://127.0.0.1:5000/api/cart/remove';
         const options = {
             method: 'POST',
-            body: JSON.stringify({'productId': item.id}),
+            body: JSON.stringify({'posterId': item.id}),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${user.apitoken}`
@@ -45,10 +45,38 @@ export default function Cart({user, cart, removeFromCart}) {
         }
     };
 
+    const removeAllFromCartAPI = async (item) => {
+        const url = 'http://127.0.0.1:5000/api/cart/removeall';
+        const options = {
+            method: 'POST',
+            body: JSON.stringify({'posterId': item.id}),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${user.apitoken}`
+            }
+            
+        };
+
+        const res = await fetch(url, options);
+        const data = await res.json();
+        if (data.status === 'ok'){
+            console.log(data)
+        }
+    };
+
+
+
     const handleClick = (item) => {
         removeFromCart(item);
         if (user.apitoken){
             removeFromCartAPI(item)
+        }
+    };
+
+    const handleAllClick = (cart) => {
+        emptyCart(cart);
+        if (user.apitoken){
+            removeAllFromCartAPI(cart)
         }
     };
 
@@ -58,6 +86,7 @@ export default function Cart({user, cart, removeFromCart}) {
     // return <p>cart</p>
     return cart.length === 0? <h1>Your cart is empty</h1>:
     (
+        <>
         <table className='table'>
             <thead>
                 <tr>
@@ -85,5 +114,7 @@ export default function Cart({user, cart, removeFromCart}) {
                 }
             </tbody>
         </table>
+        <div><button className='btn btn-danger' onClick={()=>{ handleAllClick(cart)}}>Remove All</button></div>
+        </>
     )
 }
