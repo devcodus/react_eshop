@@ -1,5 +1,5 @@
 import React from 'react'
-// import removeFromCart, user 
+// import removeFromCart, user from 
 
 export default function Cart({user, cart, removeFromCart}) {
 
@@ -26,36 +26,37 @@ export default function Cart({user, cart, removeFromCart}) {
         return count
     };
 
-//     const removeFromCartAPI = async (item) => {
-//         const url = 'http://127.0.0.1:5000/api/cart/remove';
-//         const options = {
-//             method: 'POST',
-//             body: JSON.stringify({'productId': item.id}),
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 Authorization: `Bearer ${user.apitoken}`
-//             }
-//         };
+    const removeFromCartAPI = async (item) => {
+        const url = 'http://127.0.0.1:5000/api/cart/remove';
+        const options = {
+            method: 'POST',
+            body: JSON.stringify({'productId': item.id}),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${user.apitoken}`
+            }
+            
+        };
 
-//         const res = await fetch(url, options);
-//         const data = await res.json();
-//         if (data.status === 'ok'){
-//             console.log(data)
-//         }
-//     };
+        const res = await fetch(url, options);
+        const data = await res.json();
+        if (data.status === 'ok'){
+            console.log(data)
+        }
+    };
 
-//     const handleClick = (item) => {
-//         removeFromCart(item);
-//         if (user.apitoken){
-//             removeFromCartAPI(item)
-//         }
-//     };
-
-
+    const handleClick = (item) => {
+        removeFromCart(item);
+        if (user.apitoken){
+            removeFromCartAPI(item)
+        }
+    };
 
 
-    return <p>cart</p>
-cart.length === 0? <h1>Your cart is empty</h1>:
+
+
+    // return <p>cart</p>
+    return cart.length === 0? <h1>Your cart is empty</h1>:
     (
         <table className='table'>
             <thead>
@@ -74,11 +75,11 @@ cart.length === 0? <h1>Your cart is empty</h1>:
                     <tr key={item.id}>
                         <th>{item.id}</th>
                         <td><img src={item.img_url} style={{width:'50px'}} /></td>
-                        <td>{item.product_name}</td>
+                        <td>{item.title}</td>
                         <td>{getQuantity(item,cart)}</td>
                         <td>${item.price}</td>
                         <td>${(item.price *getQuantity(item,cart)).toFixed(2) }</td>
-                        {/* <td><button className='btn btn-danger' onClick={()=>{handleClick(item)}}>Remove</button></td> */}
+                        <td><button className='btn btn-danger' onClick={()=>{handleClick(item)}}>Remove</button></td>
                     </tr>
                 ))
                 }

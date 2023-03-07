@@ -26,7 +26,7 @@ export default function Login({logMeIn}) {
         console.log(data)
         if (data.status == 'ok') {
             logMeIn(data.user) 
-            navigate('/')        
+            navigate('/shop')        
         }
 
     };

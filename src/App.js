@@ -88,7 +88,7 @@ export default function App() {
                     <Route path='/shop'  element={<Shop user={user} addToCart={addToCart}/>} />
                     <Route path='/singlePoster' element={<SinglePoster />} />
                     <Route path='/singlePoster/:posterId' element={<SinglePoster addToCart={addToCart} />} />
-                    <Route path='/cart' element={<Cart removeFromCart={removeFromCart} />} />
+                    <Route path='/cart' element={<Cart removeFromCart={removeFromCart} user={user} cart={cart} />} />
                     <Route path='/signup' element={<SignUp />} />
                     <Route path='/login' element={<Login logMeIn={logMeIn}/>} />
                     {/* <Route path='/todo' element={<ToDo myList={myList} handleToDoSubmit={addToDo} deleteToDo={deleteToDo} />} /> */}
