@@ -1,7 +1,21 @@
-import React from 'react'
+import React from 'react';
+import '../../src/views/Styles.css'
 // import removeFromCart, user from 
 
 export default function Cart({user, cart, removeFromCart, emptyCart}) {
+
+    // const styles = {
+    //     display: 'flex',
+    //     justify-content: 'flex-end',
+    //   };
+
+    // const styles = {
+    // backgroundColor: 'blue',
+    // color: 'white',
+    // padding: '10px',
+    // justify-content:
+    // };
+    
 
     const getUniqueCart = (cart) => {
         const uniqueCart = [];
@@ -96,7 +110,7 @@ export default function Cart({user, cart, removeFromCart, emptyCart}) {
                     <th scope='col'>Quantity</th>
                     <th scope='col'>Price</th>
                     <th scope='col'>Subtotal</th>
-                    <th scope='col'>Remove</th>
+                    <th className='deleteAllDiv' scope='col'>Remove</th>
                 </tr>
             </thead>
             <tbody>
@@ -108,13 +122,22 @@ export default function Cart({user, cart, removeFromCart, emptyCart}) {
                         <td>{getQuantity(item,cart)}</td>
                         <td>${item.price}</td>
                         <td>${(item.price *getQuantity(item,cart)).toFixed(2) }</td>
-                        <td><button className='btn btn-danger' onClick={()=>{handleClick(item)}}>Remove</button></td>
+                        <td className='deleteAllDiv'><button className='btn btn-danger' onClick={()=>{handleClick(item)}}>Remove</button></td>
                     </tr>
                 ))
                 }
+                <tr>
+                        <th></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td className='deleteAllDiv'><button className='btn btn-danger' onClick={()=>{ handleAllClick(cart)}}>Empty Cart</button></td>
+                    </tr>
             </tbody>
         </table>
-        <div><button className='btn btn-danger' onClick={()=>{ handleAllClick(cart)}}>Remove All</button></div>
+        <div></div>
         </>
     )
 }
