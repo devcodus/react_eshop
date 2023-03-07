@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../src/views/Styles.css'
+import '../static/Styles.css'
 // import removeFromCart, user from 
 
 export default function Cart({user, cart, removeFromCart, emptyCart}) {

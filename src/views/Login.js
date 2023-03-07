@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import SignInSide from '../components/SignInSide';
 
 
 export default function Login({logMeIn}) {
@@ -32,18 +33,19 @@ export default function Login({logMeIn}) {
     };
 
     return (
-        <div>
-            <h1>Log In</h1>
-            <form onSubmit={handleSubmit}>
-                <input name='username' placeholder='Username' />
-                <input name='password' type='password' placeholder='Password'/>
-                <button type='submit'>Log In</button>
+        // <div>
+        //     <h1>Log In</h1>
+        //     <form onSubmit={handleSubmit}>
+        //         <input name='username' placeholder='Username' />
+        //         <input name='password' type='password' placeholder='Password'/>
+        //         <button type='submit'>Log In</button>
 
 
-            </form>
+        //     </form>
 
 
 
-        </div>
+        // </div>
+        <SignInSide/>
     )
 }
