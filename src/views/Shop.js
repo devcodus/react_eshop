@@ -7,9 +7,9 @@ export default function Shop({addToCart, user} ) {
 
   const showPosters = () => {
     return posters.map((p) => (
-      <div key={p.id}>
-        <Poster posterInfo={p} addToCart={() => addToCart(p)} user = {user} />
-        <Link to={`/singlePoster/${p.id}`} className='btn btn-success' style={{marginBottom: '10px'}}>View details</Link>
+      <div key={p.id} style={{ width: "18rem" }}>
+        <Poster className='posterItems' posterInfo={p} addToCart={() => addToCart(p)} user = {user} />
+        {/* <Link to={`/singlePoster/${p.id}`} className='btn btn-success' style={{marginBottom: '10px'}}>View details</Link> */}
       </div>
     ));
   };
@@ -28,8 +28,8 @@ export default function Shop({addToCart, user} ) {
   }, []);
 
   return (
-    <div className="container row">
-      <div className="row">{showPosters()}</div>
+    <div className="container row posterGrid">
+      <div className="container row posterGrid">{showPosters()}</div>
     </div>
   );
 }

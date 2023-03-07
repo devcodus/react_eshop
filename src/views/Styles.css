@@ -4,3 +4,14 @@
     /* margin-right: 11.2rem; */
 }
 
+.posterGrid{
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: row; */
+}
+
+.posterItems{
+    flex: 1;
+    align-self: center;
+}
+

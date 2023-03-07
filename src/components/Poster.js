@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 // export default class Poster extends Component {
 //     render() {
@@ -47,12 +48,13 @@ export default function Poster({posterInfo, addToCart, user}) {
     }
 }
     return (
-        <div className="card" style={{ width: "18rem" }}>
-            <img src={posterInfo.img_url} className="card-img-top" alt="..." />
+        <div className="card posterItems" >
+            {<img src={posterInfo.img_url} className="card-img-top" alt="..." />}{/* THIS IS WHERE THE VIDEO TERNARY OPERATOR GOES */}
             <div className="card-body">
                 <h5 className="card-title">{posterInfo.title}</h5>
                 <p className="card-text">${posterInfo.price}</p>
                 <button className='btn btn-primary' onClick={()=>{addToCart(posterInfo); addToCartAPI()} }>Add To Cart</button>
+                {/* <Link to={`/singlePoster/${posterInfo.id}`} className='btn btn-success' style={{marginBottom: '10px'}}>View Poster</Link> */}
             </div>
               
         </div>
