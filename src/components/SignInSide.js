@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -9,10 +9,11 @@ import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from '../static/logo.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 
 function Copyright(props) {
@@ -30,15 +31,32 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignInSide() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+export default function SignInSide({logMeIn}) {
+  const navigate = useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+    
+
+    const url = 'http://127.0.0.1:5000/api/login'
+    const options = {
+        method: "POST",
+        headers: {
+            Authorization: `Basic ${btoa(username+':'+password)}`
+        }
+    }
+
+
+    const res = await fetch(url, options);
+    const data = await res.json();
+    console.log(data)
+    if (data.status == 'ok') {
+        logMeIn(data.user) 
+        navigate('/shop')        
+    }
+
+};
 
   return (
     <ThemeProvider theme={theme}>
@@ -68,9 +86,9 @@ export default function SignInSide() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            
               <img className='logInLogo' src={logo} alt="space poster logo"/>
-            </Avatar>
+            
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
@@ -79,10 +97,10 @@ export default function SignInSide() {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
                 autoFocus
               />
               <TextField
@@ -114,7 +132,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

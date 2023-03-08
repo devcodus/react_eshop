@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import SignUp from '../components/SignUp';
 
-export default function SignUp() {
+
+export default function SignUpView() {
     const [redirect, setRedirect] = useState(false);
 
     const handleSubmit = async (e) => {
@@ -44,20 +46,21 @@ export default function SignUp() {
     return redirect?<Navigate to='/login' />:
     
     (
-        <div>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit}>
-                <input name='username' placeholder='Username' />
-                <input name='email' placeholder='Email'/>
-                <input name='password' type='password' placeholder='Password'/>
-                <input name='confirmPassword' type='password' placeholder='Confirm Password'/>
-                <button type='submit'>Sign Up</button>
+        // <div>
+        //     <h1>Sign Up</h1>
+        //     <form onSubmit={handleSubmit}>
+        //         <input name='username' placeholder='Username' />
+        //         <input name='email' placeholder='Email'/>
+        //         <input name='password' type='password' placeholder='Password'/>
+        //         <input name='confirmPassword' type='password' placeholder='Confirm Password'/>
+        //         <button type='submit'>Sign Up</button>
 
 
-            </form>
+        //     </form>
 
 
 
-        </div>
+        // </div>
+        <SignUp id='signUpComponent' redirect={redirect} setRedirect={setRedirect}/>
     )
 }

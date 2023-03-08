@@ -6,12 +6,20 @@ export default function Shop({addToCart, user} ) {
   const [posters, setPosters] = useState([]);
 
   const showPosters = () => {
-    return posters.map((p) => (
-      <div key={p.id} style={{ width: "18rem" }}>
+    return posters.map((p) => p.media_type == 'image'? (
+      
+      <div id="keyDiv" key={p.id} style={{ width: "18rem" }}>
+      
         <Poster className='posterItems' posterInfo={p} addToCart={() => addToCart(p)} user = {user} />
+        
+        
+        
         {/* <Link to={`/singlePoster/${p.id}`} className='btn btn-success' style={{marginBottom: '10px'}}>View details</Link> */}
       </div>
-    ));
+    )
+    :
+    <></>
+    );
   };
 
   const getPosters = async () => {
@@ -28,7 +36,7 @@ export default function Shop({addToCart, user} ) {
   }, []);
 
   return (
-    <div className="container row posterGrid">
+    <div className="container-fluid row posterGridWrapper">
       <div className="container row posterGrid">{showPosters()}</div>
     </div>
   );

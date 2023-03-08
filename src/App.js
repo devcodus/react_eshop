@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import Shop from './views/Shop';
 import Nav from './components/Nav';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import SignUp from './views/SignUp';
+import SignUpView from './views/SignUpView';
 import Login from './views/Login';
 import SinglePoster from './views/SinglePoster';
 import Cart from './views/Cart'
@@ -91,7 +91,7 @@ export default function App() {
                     <Route path='/singlePoster' element={<SinglePoster />} />
                     <Route path='/singlePoster/:posterId' element={<SinglePoster addToCart={addToCart} />} />
                     <Route path='/cart' element={<Cart removeFromCart={removeFromCart} emptyCart={emptyCart} user={user} cart={cart} />} />
-                    <Route path='/signup' element={<SignUp />} />
+                    <Route path='/signup' element={<SignUpView />} />
                     <Route path='/login' element={<Login logMeIn={logMeIn}/>} />
                     {/* <Route path='/todo' element={<ToDo myList={myList} handleToDoSubmit={addToDo} deleteToDo={deleteToDo} />} /> */}
                 </Routes>

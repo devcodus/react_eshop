@@ -7,7 +7,12 @@
 .posterGrid{
     display: flex;
     justify-content: space-between;
-    /* flex-direction: row; */
+    
+}
+.posterGridWrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0px!important;
 }
 
 .posterItems{
@@ -15,11 +20,22 @@
     align-self: center;
 }
 
+#keyDiv{
+    width: "18rem";
+    margin-bottom: 2rem;
+}
+
 .navLogo{
-    width: 5rem
+    width: 5rem;
+    margin-right: .7rem;
 }
 
 .logInLogo{
-    width: 3rem;
+    width: 20rem;
+    margin-bottom: 1.5rem;
 
+}
+
+#signUpComponent{
+    background-image: url("../static/logo.jpeg") !important;
 }
