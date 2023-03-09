@@ -18,7 +18,7 @@ export default class Nav extends Component {
                         <div className="navbar-nav">
                             {/* <Link className="nav-link active" aria-current="page" to="/">Home</Link> */}
                             <Link className="nav-link active" aria-current="page" to="/shop">Shop</Link>
-                            <Link className="nav-link" to="/cart">Cart</Link>
+                            {/* <Link className="nav-link" to="/cart">Cart</Link> */}
 
                             {
                             this.props.user.apitoken
@@ -38,8 +38,8 @@ export default class Nav extends Component {
                             </>
                             }
                             <Link className="nav-link" to="/cart">
-                                <BsFillCartFill />
-                                {this.props.cart.length}|{this.props.cartTotal()}
+                                <BsFillCartFill className='cartNav' />
+                                {this.props.cart.length}|${this.props.cartTotal()}
                                 </Link>
                         </div>
                     </div>

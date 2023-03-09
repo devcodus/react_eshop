@@ -1,7 +1,26 @@
+body{
+    background-color:azure
+}
+
+nav{
+    align-items: center;
+}
+
+.navbar{
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 999;
+}
+
 .deleteAllDiv{
     display: flex;
     justify-content: center;
     /* margin-right: 11.2rem; */
+}
+
+.cartNav{
+    margin-right: .5rem;
 }
 
 .posterGrid{
@@ -21,6 +40,22 @@
     flex: 1;
     align-self: center;
 }
+
+.addToCartDiv{
+    display: flex;
+    justify-content: center;
+}
+
+*{
+    font-family: monospace;
+    /* font-weight: bold; */
+}
+
+.card-body{
+    /* padding-bottom: 0px; */
+    /* padding-right: 0px; */
+}
+
 
 #keyDiv{
     width: "18rem";

@@ -103,7 +103,7 @@ export default function Cart({user, cart, removeFromCart, emptyCart}) {
 
 
     // return <p>cart</p>
-    return cart.length === 0? <h1>Your cart is empty</h1>:
+    return cart.length === 0? <h5>Your cart is empty</h5>:
     (
         <>
         <table className='table'>

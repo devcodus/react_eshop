@@ -1,5 +1,9 @@
+// import { IconButton } from '@mui/material';
 import React from 'react'
 import { Link } from 'react-router-dom';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import IconButton from '@mui/material/IconButton';
+
 
 // export default class Poster extends Component {
 //     render() {
@@ -52,8 +56,13 @@ export default function Poster({posterInfo, addToCart, user}) {
             {<img src={posterInfo.img_url} className="card-img-top" alt="..." />}{/* THIS IS WHERE THE VIDEO TERNARY OPERATOR GOES */}
             <div className="card-body">
                 <h5 className="card-title">{posterInfo.title}</h5>
-                <p className="card-text">${posterInfo.price}</p>
-                <button className='btn btn-primary' onClick={()=>{addToCart(posterInfo); addToCartAPI()} }>Add To Cart</button>
+                <div className='container addToCartDiv'>
+                    <IconButton color="primary" aria-label="add to shopping cart" onClick={()=>{addToCart(posterInfo); addToCartAPI()} }>
+                        <AddShoppingCartIcon/>
+                    </IconButton>
+                    {/* <span className="card-text">${posterInfo.price}</span> */}
+                </div>
+                {/* <button className='btn btn-primary' onClick={()=>{addToCart(posterInfo); addToCartAPI()} }>Add To Cart</button> */}
                 {/* <Link to={`/singlePoster/${posterInfo.id}`} className='btn btn-success' style={{marginBottom: '10px'}}>View Poster</Link> */}
             </div>
               
