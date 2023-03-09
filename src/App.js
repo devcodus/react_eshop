@@ -8,7 +8,13 @@ import SinglePoster from './views/SinglePoster';
 import Cart from './views/Cart'
 
 
+const REACT_APP_STRIPE_KEY = process.env.REACT_APP_STRIPE_API_KEY
+
+
 export default function App() {
+
+    const [products, setProducts] = useState([]);
+
     // const [myList, setMyList] = useState([]);
     const [user, setUser] = useState({});
     const [cart, setCart] = useState([]);
@@ -76,9 +82,38 @@ export default function App() {
     };
 
     useEffect(()=>{
-        getCartAPI(user)
+        getCartAPI(user);
+        getProducts();
     }, [user])
 
+    
+
+    const getProducts = async () => {
+        const url = 'https://api.stripe.com/v1/products';
+        const options = {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${REACT_APP_STRIPE_KEY}`
+            }
+        }
+
+        const res = await fetch(url, options);
+        const data = await res.json();
+        console.log(data)
+        setProducts(data.data)
+    };
+
+    // const showProducts = () =>{
+    //     return products.map(p=><div key={p.id}><h1>{p.name}</h1><button>Add to Cart</button></div>)
+    // }
+
+    // const addInputTag = () => {
+    //     return Object.keys(cart).map(key => key !== 'size'?
+    //         <input key={key}  type="" name={cart[key].default_price} defaultValue={cart[key].qty}/>
+    //         :
+    //         <></>
+    //         )
+    // }
 
 
     return (
@@ -87,6 +122,7 @@ export default function App() {
                 <Nav user={user} logMeOut={logMeOut} cart={cart} cartTotal={cartTotal}/>
 
                 <Routes>
+                    <Route path='/'  element={<SignUpView />} />
                     <Route path='/shop'  element={<Shop user={user} addToCart={addToCart}/>} />
                     <Route path='/singlePoster' element={<SinglePoster />} />
                     <Route path='/singlePoster/:posterId' element={<SinglePoster addToCart={addToCart} />} />
@@ -95,7 +131,7 @@ export default function App() {
                     <Route path='/login' element={<Login logMeIn={logMeIn}/>} />
                     {/* <Route path='/todo' element={<ToDo myList={myList} handleToDoSubmit={addToDo} deleteToDo={deleteToDo} />} /> */}
                 </Routes>
-
+                
             </div>
         </Router>
     )

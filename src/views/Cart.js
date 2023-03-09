@@ -95,6 +95,11 @@ export default function Cart({user, cart, removeFromCart, emptyCart}) {
     };
 
 
+    const addInputTag = () => {
+        return getUniqueCart(cart).map(item =>
+            <input hidden name={item.title} defaultValue={getQuantity(item, cart)}/>
+            )
+    }
 
 
     // return <p>cart</p>
@@ -111,6 +116,8 @@ export default function Cart({user, cart, removeFromCart, emptyCart}) {
                     <th scope='col'>Price</th>
                     <th scope='col'>Subtotal</th>
                     <th className='deleteAllDiv' scope='col'>Remove</th>
+                    <th  scope='col'>Purchase</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -123,6 +130,7 @@ export default function Cart({user, cart, removeFromCart, emptyCart}) {
                         <td>${item.price}</td>
                         <td>${(item.price *getQuantity(item,cart)).toFixed(2) }</td>
                         <td className='deleteAllDiv'><button className='btn btn-danger' onClick={()=>{handleClick(item)}}>Remove</button></td>
+                        
                     </tr>
                 ))
                 }
@@ -134,6 +142,11 @@ export default function Cart({user, cart, removeFromCart, emptyCart}) {
                         <td></td>
                         <td></td>
                         <td className='deleteAllDiv'><button className='btn btn-danger' onClick={()=>{ handleAllClick(cart)}}>Empty Cart</button></td>
+                        <td >
+                            <form method='POST' action='http://127.0.0.1:5000/api/create-checkout-session'>
+                            {addInputTag()}
+                            <button className='btn btn-success' type='submit'>Checkout</button></form>
+                        </td>
                     </tr>
             </tbody>
         </table>

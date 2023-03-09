@@ -12,7 +12,7 @@ export default function Shop({addToCart, user} ) {
       
         <Poster className='posterItems' posterInfo={p} addToCart={() => addToCart(p)} user = {user} />
         
-        
+          
         
         {/* <Link to={`/singlePoster/${p.id}`} className='btn btn-success' style={{marginBottom: '10px'}}>View details</Link> */}
       </div>
