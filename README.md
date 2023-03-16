@@ -2,7 +2,7 @@
 
 This project includes a a React frontend, Flask backend, ElephantSQL database,  NASA API, and Stripe payment processing system.
 
-You are currently in the React frontend repo. Please click into my [other repo](https://github.com/devcodus/flask_eshop_backend) to download the backend.
+You are currently in the React frontend repo. If you haven't already, please click into my [other repo](https://github.com/devcodus/flask_eshop_backend) to download the backend.
 
 ## Available Scripts
 
