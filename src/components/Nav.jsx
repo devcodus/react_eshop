@@ -17,28 +17,28 @@ export default class Nav extends Component {
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
                             {/* <Link className="nav-link active" aria-current="page" to="/">Home</Link> */}
-                            <Link className="nav-link active" aria-current="page" to="/shop">Shop</Link>
+                            {/* <Link className="nav-link active" aria-current="page" to="/shop">Shop</Link> */}
                             {/* <Link className="nav-link" to="/cart">Cart</Link> */}
 
                             {
                             this.props.user.apitoken
                             ?
                             <>
-                             <Link className="nav-link" to="/login" onClick={this.props.logMeOut}>Log Out</Link>
-                             <p className='nav-link'>Hello, {this.props.user.username}</p>
+                             <Link className="nav-link alignLeft" to="/login" onClick={this.props.logMeOut}>Log Out</Link>
+                             <p className='nav-link alignRight'>Hello, {this.props.user.username}</p>
                              </>
                             :
                             
                             <>
 
                             
-                            <Link className="nav-link" to="/signup">Sign Up</Link>
-                            <Link className="nav-link" to="/login">Log In</Link>
+                            <Link className="nav-link alignLeft" to="/signup">Sign Up</Link>
+                            <Link className="nav-link alignLeft" to="/login">Log In</Link>
                             
                             </>
                             }
-                            <Link className="nav-link" to="/cart">
-                                <BsFillCartFill className='cartNav' />
+                            <Link className="nav-link alignRight" to="/cart">
+                                <BsFillCartFill className='cartNav alignRight' />
                                 {this.props.cart.length}|${this.props.cartTotal()}
                                 </Link>
                         </div>

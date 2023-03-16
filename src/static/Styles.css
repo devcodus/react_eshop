@@ -47,7 +47,7 @@ nav{
 }
 
 *{
-    font-family: monospace;
+    font-family: monospace!important;
     /* font-weight: bold; */
 }
 
@@ -68,11 +68,19 @@ nav{
 }
 
 .logInLogo{
-    width: 20rem;
+    width: 40rem;
     margin-bottom: 1.5rem;
 
 }
 
 #signUpComponent{
     background-image: url("../static/logo.jpeg") !important;
+}
+
+.alignRight {
+	float: right!important;
+}
+
+.alignLeft {
+    float: left!important;
 }
