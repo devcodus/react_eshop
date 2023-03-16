@@ -12,7 +12,8 @@ In the project directory, you can run:
 
 Open [http://localhost:3000](http://localhost:3000) to view my frontend in your browser.
 
-The page will reload when you make changes.\
+The page will reload when you make changes.
 
-My eShop will only display properly if you have downloaded my [backend](https://github.com/devcodus/flask_eshop_backend) and followed the instructions in there to spin up the server. 
+My eShop will only display properly if you have downloaded my [backend](https://github.com/devcodus/flask_eshop_backend) and followed the instructions there to spin up the server. 
 
+Happy Shopping!
