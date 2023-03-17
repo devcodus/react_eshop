@@ -1,14 +1,18 @@
 # This is a 2-repo project
 
-This project includes a a React frontend, Flask backend, ElephantSQL database,  NASA API, and Stripe payment processing system.
+(This project includes a a React frontend, Flask backend, ElephantSQL database,  NASA API, and Stripe payment processing system.)
 
-You are currently in the React frontend repo. If you haven't already, please click into my [other repo](https://github.com/devcodus/flask_eshop_backend) to download the backend.
+<br>
 
-## Available Scripts
+You are currently in the React frontend repo. If you haven't already, please click into my [backend](https://github.com/devcodus/flask_eshop_backend) to download it.
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+## How to spin up this Frontend 
+
+ In the project directory, you can run: 
+
+## `npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view my frontend in your browser.
 
