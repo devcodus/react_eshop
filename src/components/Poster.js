@@ -53,7 +53,7 @@ export default function Poster({posterInfo, addToCart, user}) {
 }
     return (
         <div className="card posterItems" >
-            {<img src={posterInfo.img_url} className="card-img-top" alt="..." />}{/* THIS IS WHERE THE VIDEO TERNARY OPERATOR GOES */}
+            {<a href={`/singlePoster/${posterInfo.id}`}><img src={posterInfo.img_url} className="card-img-top" alt="..." /></a>}{/* THIS IS WHERE THE VIDEO TERNARY OPERATOR GOES */}
             <div className="card-body">
                 <h5 className="card-title">{posterInfo.title}</h5>
                 <div className='container addToCartDiv'>

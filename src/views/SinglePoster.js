@@ -31,25 +31,26 @@ export default function SinglePoster({user, addToCart}) {
 
     useEffect(()=>{
         getPosterInfo()
+        // console.log(poster)
     }, [])
 
-    const deletePoster = async () => {
-        const url = `http://127.0.0.1:5000/api/posts/${posterId}/delete`;
-        const options = {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization : `Bearer ${user.apitoken}`
-            }
-        }
+    // const deletePoster = async () => {
+    //     const url = `http://127.0.0.1:5000/api/posts/${posterId}/delete`;
+    //     const options = {
+    //         method: "GET",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             Authorization : `Bearer ${user.apitoken}`
+    //         }
+    //     }
 
-        const res = await fetch(url, options);
-        const data = await res.json();
-        console.log(data)
-        if (data.status === 'ok') {
-            // redirect
-        }
-    }
+    //     const res = await fetch(url, options);
+    //     const data = await res.json();
+    //     console.log(data)
+    //     if (data.status === 'ok') {
+    //         // redirect
+    //     }
+    // }
 
 
     return (
